@@ -1,0 +1,73 @@
+<div style="text-align: center;">
+  <h1>Certificado Sanitario</h1>
+  <button (click)="open(certificadoModal)">Abrir Certificado</button>
+  
+  <ng-template #certificadoModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Certificado Sanitario</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div>
+          <label for="exportador">Exportador:</label>
+          <input id="exportador" [(ngModel)]="data_solicitud_new.exportador" [readonly]="readonlyPorId.exportador">
+        </div>
+        <div>
+          <label for="importador">Importador:</label>
+          <input id="importador" [(ngModel)]="data_solicitud_new.importador" [readonly]="readonlyPorId.importador">
+        </div>
+        <div>
+          <label for="direccion-exportador">Dirección Exportador:</label>
+          <textarea id="direccion-exportador" [(ngModel)]="data_solicitud_new.direccion_exportador" [readonly]="readonlyPorId.direccion_exportador"></textarea>
+        </div>
+        <div>
+          <label for="direccion-importador">Dirección Importador:</label>
+          <textarea id="direccion-importador" [(ngModel)]="data_solicitud_new.direccion_importador" [readonly]="readonlyPorId.direccion_importador"></textarea>
+        </div>
+        <div>
+          <label for="transporte">Transporte:</label>
+          <input id="transporte" [(ngModel)]="data_solicitud_new.transporte" [readonly]="readonlyPorId.transporte">
+        </div>
+        <div>
+          <label for="pais-destino">País de Destino:</label>
+          <input id="pais-destino" [(ngModel)]="data_solicitud_new.pais_destino" [readonly]="readonlyPorId.pais_destino">
+        </div>
+        <div>
+          <label for="salida">Punto de Salida:</label>
+          <input id="salida" [(ngModel)]="data_solicitud_new.salida" [readonly]="readonlyPorId.salida">
+        </div>
+        <div>
+          <label for="entrada">Punto de Entrada:</label>
+          <input id="entrada" [(ngModel)]="data_solicitud_new.entrada" [readonly]="readonlyPorId.entrada">
+        </div>
+        <div>
+          <label for="mercancias">Mercancías:</label>
+          <input id="mercancias" [(ngModel)]="data_solicitud_new.mercancias" [readonly]="readonlyPorId.mercancias">
+        </div>
+        <div>
+          <label for="pais-transito">País de Tránsito:</label>
+          <input id="pais-transito" [(ngModel)]="data_solicitud_new.pais_transito" [readonly]="readonlyPorId.pais_transito">
+        </div>
+        <div>
+          <label for="certifica">Certifica:</label>
+          <textarea id="certifica" [(ngModel)]="data_solicitud_new.certifica" [readonly]="readonlyPorId.certifica"></textarea>
+        </div>
+        <div>
+          <label for="observaciones">Observaciones:</label>
+          <textarea id="observaciones" [(ngModel)]="data_solicitud_new.observaciones" [readonly]="readonlyPorId.observaciones"></textarea>
+        </div>
+        <div>
+          <label for="lugar-fecha">Lugar y Fecha:</label>
+          <input id="lugar-fecha" [(ngModel)]="data_solicitud_new.lugar_fecha" [readonly]="readonlyPorId.lugar_fecha">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="descargarPDF()">Descargar PDF</button>
+      <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Close click')">Cerrar</button>
+    </div>
+  </ng-template>
+</div>

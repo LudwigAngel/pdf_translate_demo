@@ -1,0 +1,37 @@
+{
+  "name": "angular-certificate-app",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "~14.0.0",
+    "@angular/core": "~14.0.0",
+    "@angular/forms": "~14.0.0",
+    "@angular/platform-browser": "~14.0.0",
+    "@angular/platform-browser-dynamic": "~14.0.0",
+    "bootstrap": "^5.2.0",
+    "express": "^5.1.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "rxjs": "~7.5.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~14.0.0",
+    "@angular/cli": "~14.0.0",
+    "@angular/compiler": "~14.0.0",
+    "@angular/compiler-cli": "~14.0.0",
+    "typescript": "~4.6.2"
+  },
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.11.0"
+  }
+}

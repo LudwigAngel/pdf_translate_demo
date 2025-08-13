@@ -1,0 +1,91 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titulo-h1">CERTIFICADO SANITARIO DE EXPORTACIÓN</h5>
+  <button type="button" class="close" aria-label="Close" (click)="modalRef.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body modal-cuerpo">
+  <div>
+    <p id="text-nro-expediente">Expediente N° : <span id="nro-expediente"></span></p>
+    <p id="text-nro-certificado">Certificado N° : <span id="nro-certificado"></span></p>
+  </div>
+  <div>
+    <label for="exportador" id="text-exportador">Exportador:</label>
+    <textarea id="exportador" rows="2"></textarea>
+    
+    <label for="importador" id="text-importador">Importador:</label>
+    <textarea id="importador" rows="2"></textarea>
+    
+    <label for="direccion-exportador" id="text-direccion-exportador">Dirección:</label>
+    <textarea id="direccion-exportador" rows="2"></textarea>
+    
+    <label for="direccion-importador" id="text-direccion-importador">Dirección:</label>
+    <textarea id="direccion-importador" rows="2"></textarea>
+    
+    <label for="transporte" id="text-transporte">Medio de transporte:</label>
+    <textarea id="transporte" rows="2"></textarea>
+    
+    <label for="pais-destino" id="text-pais-destino">País de destino:</label>
+    <textarea id="pais-destino" rows="2"></textarea>
+    
+    <label for="salida" id="text-salida">Puesto de Control de Salida:</label>
+    <textarea id="salida" rows="2"></textarea>
+    
+    <label for="entrada" id="text-entrada">Punto de Entrada:</label>
+    <textarea id="entrada" rows="2"></textarea>
+    
+    <label for="mercancias" id="text-mercancias">Total de mercancias pecuarias:</label>
+    <textarea id="mercancias" rows="2"></textarea>
+    
+    <label for="pais-transito" id="text-pais-transito">País de Tránsito:</label>
+    <textarea id="pais-transito" rows="2"></textarea>
+    
+    <label for="certifica" id="text-certifica">Se certifica que:</label>
+    <textarea id="certifica" rows="2"></textarea>
+    
+    <label for="observaciones" id="text-observaciones">Observaciones:</label>
+    <textarea id="observaciones" rows="2"></textarea>
+    
+    <label for="lugar-fecha" id="text-lugar-fecha">Lugar y Fecha de emisión:</label>
+    <textarea id="lugar-fecha" rows="2"></textarea>
+  </div>
+  
+  <table id="descripcion">
+    <thead>
+      <tr>
+        <th id="tabla-text-especie-1">Especie animal</th>
+        <th id="tabla-text-especie-2">-Productos-</th>
+        <th id="tabla-text-especie-3">Subproducto</th>
+        <th id="tabla-text-cantidad-1">Cantidad</th>
+        <th id="tabla-text-cantidad-2">(Kg)</th>
+        <th id="tabla-text-identificacion">Identificación</th>
+        <th id="tabla-text-lugar-origen">Lugar de origen</th>
+        <th id="tabla-text-animales">Solo para animales</th>
+        <th id="tabla-text-raza">Raza</th>
+        <th id="tabla-text-sexo">Sexo</th>
+        <th id="tabla-text-edad">Edad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+        <td><textarea rows="1"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <button (click)="agregarFilaVacia()">Agregar Fila</button>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.dismiss()">Cerrar</button>
+  <button type="button" class="btn btn-primary" (click)="descargarPDF()">Descargar PDF</button>
+</div>

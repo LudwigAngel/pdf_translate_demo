@@ -1,0 +1,222 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <button class="btn btn-primary" (click)="open(content)">
+          Ver Certificado
+        </button>
+        
+        <!-- Selector de idioma -->
+        <div class="d-flex align-items-center">
+          <label class="me-2"><strong>Idioma:</strong></label>
+          <select class="form-select" style="width: auto;" 
+                  [(ngModel)]="idiomaSeleccionado" 
+                  (change)="cambiarIdioma($event.target.value)"
+                  [disabled]="traduciendoCertificado">
+            <option *ngFor="let idioma of idiomasDisponibles" [value]="idioma.codigo">
+              {{idioma.nombre}}
+            </option>
+          </select>
+          <div *ngIf="traduciendoCertificado" class="ms-2">
+            <div class="spinner-border spinner-border-sm" role="status">
+              <span class="visually-hidden">Traduciendo...</span>
+            </div>
+            <small class="ms-1">Traduciendo...</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-contenido">
+    <div class="modal-header">
+      <h4 class="modal-title">Certificado Sanitario</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div class="modal-cuerpo">
+      <div class="doc-seccion" style="padding: 20px; background-color: white;">
+        <!-- Encabezado del certificado -->
+        <div class="text-center mb-4">
+          <h1 id="titulo-h1" style="color: #2c3e50; font-weight: bold;">CERTIFICADO SANITARIO DE EXPORTACIÓN</h1>
+        </div>
+
+        <!-- Información básica del certificado -->
+        <div class="row mb-3">
+          <div class="col-6">
+            <strong id="text-nro-expediente">Expediente N° :</strong>
+            <span id="nro-expediente" class="ms-2"></span>
+          </div>
+          <div class="col-6">
+            <strong id="text-nro-certificado">Certificado N° :</strong>
+            <span id="nro-certificado" class="ms-2"></span>
+          </div>
+        </div>
+
+        <!-- Exportador e Importador -->
+        <div class="row mb-3">
+          <div class="col-6">
+            <label id="text-exportador" class="form-label"><strong>Exportador:</strong></label>
+            <textarea id="exportador" class="form-control" [readonly]="readonlyPorId['exportador']"></textarea>
+          </div>
+          <div class="col-6">
+            <label id="text-importador" class="form-label"><strong>Importador:</strong></label>
+            <textarea id="importador" class="form-control" [readonly]="readonlyPorId['importador']"></textarea>
+          </div>
+        </div>
+
+        <!-- Direcciones -->
+        <div class="row mb-3">
+          <div class="col-6">
+            <label id="text-direccion-exportador" class="form-label"><strong>Dirección:</strong></label>
+            <textarea id="direccion-exportador" class="form-control" [readonly]="readonlyPorId['direccion_exportador']"></textarea>
+          </div>
+          <div class="col-6">
+            <label id="text-direccion-importador" class="form-label"><strong>Dirección:</strong></label>
+            <textarea id="direccion-importador" class="form-control" [readonly]="readonlyPorId['direccion_importador']"></textarea>
+          </div>
+        </div>
+
+        <!-- Información de transporte -->
+        <div class="row mb-3">
+          <div class="col-6">
+            <label id="text-transporte" class="form-label"><strong>Medio de transporte:</strong></label>
+            <textarea id="transporte" class="form-control" [readonly]="readonlyPorId['transporte']"></textarea>
+          </div>
+          <div class="col-6">
+            <label id="text-pais-destino" class="form-label"><strong>País de destino:</strong></label>
+            <textarea id="pais-destino" class="form-control" [readonly]="readonlyPorId['pais_destino']"></textarea>
+          </div>
+        </div>
+
+        <!-- Puntos de salida y entrada -->
+        <div class="row mb-3">
+          <div class="col-6">
+            <label id="text-salida" class="form-label"><strong>Puesto de Control de Salida:</strong></label>
+            <textarea id="salida" class="form-control" [readonly]="readonlyPorId['salida']"></textarea>
+          </div>
+          <div class="col-6">
+            <label id="text-entrada" class="form-label"><strong>Punto de Entrada:</strong></label>
+            <textarea id="entrada" class="form-control" [readonly]="readonlyPorId['entrada']"></textarea>
+          </div>
+        </div>
+
+        <!-- Mercancías y país de tránsito -->
+        <div class="row mb-3">
+          <div class="col-6">
+            <label id="text-mercancias" class="form-label"><strong>Total de mercancías pecuarias:</strong></label>
+            <textarea id="mercancias" class="form-control" [readonly]="readonlyPorId['mercancias']"></textarea>
+          </div>
+          <div class="col-6">
+            <label id="text-pais-transito" class="form-label"><strong>País de Tránsito:</strong></label>
+            <textarea id="pais-transito" class="form-control" [readonly]="readonlyPorId['pais_transito']"></textarea>
+          </div>
+        </div>
+
+        <!-- Tabla de descripción -->
+        <div class="mb-3">
+          <h5 id="text-descripcion"><strong>Descripción:</strong></h5>
+          <table id="descripcion" class="table table-bordered">
+            <thead>
+              <tr>
+                <th id="tabla-text-especie-1">Especie animal</th>
+                <th id="tabla-text-cantidad-1">Cantidad</th>
+                <th id="tabla-text-identificacion">Identificación</th>
+                <th id="tabla-text-lugar-origen">Lugar de origen</th>
+                <th id="tabla-text-raza">Raza</th>
+                <th id="tabla-text-sexo">Sexo</th>
+                <th id="tabla-text-edad">Edad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><textarea class="form-control"></textarea></td>
+                <td><textarea class="form-control"></textarea></td>
+                <td><textarea class="form-control"></textarea></td>
+                <td><textarea class="form-control"></textarea></td>
+                <td><textarea class="form-control"></textarea></td>
+                <td><textarea class="form-control"></textarea></td>
+                <td><textarea class="form-control"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-sm btn-secondary" (click)="agregarFilaVacia()">
+            Agregar Fila
+          </button>
+        </div>
+
+        <!-- Certificación -->
+        <div class="mb-3">
+          <label id="text-certifica" class="form-label"><strong>Se certifica que:</strong></label>
+          <textarea id="certifica" class="form-control" rows="3" [readonly]="readonlyPorId['certifica']"></textarea>
+          <textarea id="certifica2" class="form-control mt-2" rows="2" [readonly]="readonlyPorId['certifica']"></textarea>
+        </div>
+
+        <!-- Observaciones -->
+        <div class="mb-3">
+          <label id="text-observaciones" class="form-label"><strong>Observaciones:</strong></label>
+          <textarea id="observaciones" class="form-control" rows="3" [readonly]="readonlyPorId['observaciones']"></textarea>
+        </div>
+
+        <!-- Lugar y fecha -->
+        <div class="row mb-4">
+          <div class="col-6">
+            <label id="text-lugar-fecha" class="form-label"><strong>Lugar y Fecha de emisión:</strong></label>
+            <textarea id="lugar-fecha" class="form-control" [readonly]="readonlyPorId['lugar_fecha']"></textarea>
+          </div>
+          <div class="col-6 text-center">
+            <div style="margin-top: 30px;">
+              <p id="text-firma-sello"><strong>Firma y sello del Inspector Oficial</strong></p>
+              <div style="height: 80px; border: 1px solid #ccc; margin-top: 10px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pie de página -->
+        <div class="text-center mt-4" style="font-size: 0.9em; color: #666;">
+          <p>
+            <span id="text-pie-pagina-1">El SENASA, sus funcionarios y representantes declinan toda responsabilidad</span><br>
+            <span id="text-pie-pagina-2">financiera resultante de este Certificado.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="d-flex justify-content-between w-100">
+        <div>
+          <!-- Selector de idioma en el modal -->
+          <div class="d-flex align-items-center">
+            <label class="me-2"><strong>Traducir a:</strong></label>
+            <select class="form-select me-2" style="width: auto;" 
+                    [(ngModel)]="idiomaSeleccionado" 
+                    (change)="cambiarIdioma($event.target.value)"
+                    [disabled]="traduciendoCertificado">
+              <option *ngFor="let idioma of idiomasDisponibles" [value]="idioma.codigo">
+                {{idioma.nombre}}
+              </option>
+            </select>
+            <span *ngIf="traduciendoCertificado" class="text-primary">
+              <div class="spinner-border spinner-border-sm me-1"></div>
+              Traduciendo...
+            </span>
+          </div>
+        </div>
+        
+        <div>
+          <button type="button" class="btn btn-secondary" (click)="bloquearTodosCampos()">Bloquear Campos</button>
+          <button type="button" class="btn btn-info" (click)="desbloquearTodosCampos()">Editar</button>
+          <button type="button" class="btn btn-success" (click)="descargarPDF()" [disabled]="bloquear_carga_recuperar || traduciendoCertificado">
+            <span *ngIf="bloquear_carga_recuperar" class="spinner-border spinner-border-sm me-2"></span>
+            {{ bloquear_carga_recuperar ? 'Generando...' : 'Descargar PDF' }}
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="modal.close('Save click')">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

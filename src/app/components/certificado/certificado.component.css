@@ -1,0 +1,129 @@
+/* Estilos para el certificado */
+.modal-contenido {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.doc-seccion {
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.modal-cuerpo {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Estilos para textareas */
+textarea.form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  resize: none;
+  min-height: 38px;
+  overflow: hidden;
+}
+
+textarea.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+textarea.form-control[readonly] {
+  background-color: #f8f9fa;
+  opacity: 1;
+}
+
+textarea.filled-propio {
+  background-color: #fff;
+}
+
+/* Estilos para la tabla */
+table#descripcion {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table#descripcion th,
+table#descripcion td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table#descripcion th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+table#descripcion td textarea {
+  width: 100%;
+  min-height: 35px;
+  border: none;
+  padding: 5px;
+  resize: none;
+}
+
+/* Estilos para el encabezado */
+#titulo-h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.modal-cuerpo {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+textarea.filled-propio {
+    background-color: #e9f7ef;
+}
+
+.doc-seccion {
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
